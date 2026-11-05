@@ -1,0 +1,794 @@
+/* 智审 OA · Vue 版补充样式（在 style.css / saas.css 之后加载） */
+
+/* Vue 根节点保持块级，页面高度沿用原 .shell / .page 规则 */
+#app {
+  display: block;
+}
+
+/* 顶栏副标题在 Vue 模板中始终存在，避免空元素塌陷 */
+.topbar-subtitle {
+  display: block;
+  min-height: 14px;
+}
+
+/* 登录页账号建议下拉：确保在 Vue 渲染下层级正确 */
+.account-suggestions {
+  z-index: 5;
+}
+
+/* AI 面板按钮换行更自然 */
+.ai-card .btn {
+  margin-right: 6px;
+}
+
+.ai-card .btn:last-child {
+  margin-right: 0;
+}
+
+/* 详情独立页：内容居中留白 */
+body.detail-only .toolbar {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+/* 详情页键值表：旧规则给 table 设了 min-width:790px（配合 .table-wrap 横向滚动），
+   但详情页的键值表直接放在 .card 内，会被强制撑宽并溢出卡片，这里单独放开。 */
+.card > table {
+  min-width: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.card > table th {
+  width: 116px;
+  white-space: nowrap;
+  vertical-align: top;
+}
+
+.card > table td {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+/* 审批数据看板 */
+.span6 {
+  grid-column: span 6;
+}
+
+.chart-box {
+  width: 100%;
+  height: 300px;
+}
+
+.chart-box-sm {
+  height: 240px;
+}
+
+@media (max-width: 850px) {
+  .span6 {
+    grid-column: span 12;
+  }
+  .chart-box,
+  .chart-box-sm {
+    height: 260px;
+  }
+}
+
+.employee-admin-tabs {
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.employee-ai-card {
+  margin-bottom: 14px;
+}
+
+.employee-alert-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.employee-alert {
+  padding: 8px 10px;
+  border-radius: 6px;
+  background: #f2f4f7;
+  color: #344054;
+  font-size: 12px;
+}
+
+.employee-alert.warning {
+  background: #fffaeb;
+  color: #b54708;
+}
+
+.employee-alert.critical {
+  background: #fef3f2;
+  color: #b42318;
+}
+
+.employee-alert.info {
+  background: #eff8ff;
+  color: #175cd3;
+}
+
+.employee-filters {
+  grid-template-columns: 2fr 1fr 1fr;
+  margin: 12px 0;
+}
+
+.employee-form-card {
+  margin-top: 14px;
+}
+
+.employee-form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 12px 0;
+}
+
+.employee-form-wide {
+  grid-column: 1 / -1;
+}
+
+.employee-form-grid textarea {
+  width: 100%;
+  resize: vertical;
+}
+
+.employee-inline-tools {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.kpi-clickable {
+  cursor: pointer;
+  transition: border-color .18s ease, transform .18s ease;
+}
+
+.kpi-clickable:hover {
+  border-color: #84adff;
+  transform: translateY(-1px);
+}
+
+.acting-for-banner {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border: 1px solid #abefc6;
+  border-radius: 7px;
+  background: #ecfdf3;
+  color: #067647;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.proxy-mark {
+  display: block;
+  margin-top: 4px;
+  color: #175cd3;
+  font-size: 11px;
+}
+
+.employee-work-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(16, 24, 40, .45);
+}
+
+.employee-work-dialog {
+  width: min(760px, 100%);
+  max-height: 82vh;
+  overflow: auto;
+  padding: 20px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 20px 48px rgba(16, 24, 40, .22);
+}
+
+.comp-quick-fill {
+  display: grid;
+  grid-template-columns: minmax(160px, 1fr) minmax(180px, 1fr) auto;
+  gap: 10px;
+  align-items: end;
+  margin-bottom: 8px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
+.comp-balance-note span {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.comp-balance-note strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 20px;
+}
+
+.comp-over-limit {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: #b42318;
+  font-size: 12px;
+}
+
+@media (max-width: 1000px) {
+  .employee-form-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .employee-form-wide {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 850px) {
+  .employee-filters,
+  .employee-form-grid {
+    grid-template-columns: 1fr;
+  }
+  .comp-quick-fill {
+    grid-template-columns: 1fr;
+  }
+  .employee-form-wide {
+    grid-column: auto;
+  }
+}
+
+/* 部门管理 */
+.dept-cols {
+  grid-template-columns: 1.25fr 0.75fr;
+}
+
+.dept-list {
+  display: grid;
+  gap: 4px;
+}
+
+.dept-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.dept-row:last-child {
+  border-bottom: 0;
+}
+
+.dept-delete-warning {
+  margin: 0 0 12px;
+}
+
+.dept-employee-card {
+  margin-top: 16px;
+}
+
+.dept-employee-search {
+  width: min(280px, 100%);
+  height: 38px;
+  border: 1px solid #d0d5dd;
+  border-radius: 7px;
+  padding: 0 11px;
+  background: #fff;
+  color: var(--ink);
+}
+
+.dept-employee-table {
+  max-height: 430px;
+  overflow: auto;
+}
+
+.dept-employee-table select {
+  width: 100%;
+  min-width: 150px;
+  height: 38px;
+  border: 1px solid #d0d5dd;
+  border-radius: 7px;
+  padding: 0 9px;
+  background: #fff;
+  color: var(--ink);
+}
+
+.dept-employee-mobile-meta {
+  display: none;
+}
+
+.delegation-task {
+  border-left-width: 3px;
+}
+
+.delegation-task.leave-task {
+  border-left-color: #175cd3;
+}
+
+.delegation-task.correction-task {
+  border-left-color: #b54708;
+}
+
+.delegation-type {
+  display: inline-block;
+  margin-right: 7px;
+  padding: 1px 7px;
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.leave-task .delegation-type {
+  background: #eef4ff;
+  color: #175cd3;
+}
+
+.correction-task .delegation-type {
+  background: #fff4e5;
+  color: #b54708;
+}
+
+.delegation-type.correction-type {
+  background: #fff4e5;
+  color: #b54708;
+}
+
+.approval-view-tabs {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  margin-bottom: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.approval-view-tabs button {
+  border: 0;
+  border-radius: 6px;
+  padding: 7px 13px;
+  background: transparent;
+  color: var(--muted);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.approval-view-tabs button.active {
+  background: var(--navy);
+  color: #fff;
+}
+
+.dept-name strong {
+  display: block;
+}
+
+.dept-name small {
+  color: var(--muted);
+}
+
+.dept-edit {
+  display: grid;
+  gap: 8px;
+  flex: 1;
+}
+
+.dept-edit input,
+.dept-edit select {
+  height: 40px;
+  border: 1px solid #d0d5dd;
+  border-radius: 7px;
+  padding: 0 11px;
+  background: #fff;
+  color: var(--ink);
+}
+
+.dept-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.dept-drill {
+  margin-top: 18px;
+}
+
+@media (max-width: 850px) {
+  .dept-cols {
+    grid-template-columns: 1fr;
+  }
+  .dept-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .dept-edit {
+    width: 100%;
+  }
+  .dept-employee-card .card-heading {
+    display: grid;
+    gap: 10px;
+  }
+  .dept-employee-search {
+    width: 100%;
+  }
+  .dept-employee-table table {
+    min-width: 0;
+    table-layout: fixed;
+  }
+  .dept-employee-table .dept-col-level,
+  .dept-employee-table .dept-col-linked {
+    display: none;
+  }
+  .dept-employee-table th,
+  .dept-employee-table td {
+    padding: 10px 6px;
+  }
+  .dept-employee-table th:nth-child(1),
+  .dept-employee-table td:nth-child(1) {
+    width: 32%;
+  }
+  .dept-employee-table th:nth-child(4),
+  .dept-employee-table td:nth-child(4) {
+    width: 42%;
+  }
+  .dept-employee-table th:nth-child(5),
+  .dept-employee-table td:nth-child(5) {
+    width: 26%;
+  }
+  .dept-employee-table select {
+    min-width: 0;
+    padding: 0 4px;
+    font-size: 12px;
+  }
+  .dept-employee-table .btn {
+    width: 100%;
+    padding-left: 6px;
+    padding-right: 6px;
+    font-size: 12px;
+  }
+  .dept-employee-mobile-meta {
+    display: block;
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.4;
+  }
+}
+
+/* AI 预审反馈闭环 */
+.ai-accuracy {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: #f8fafc;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.ai-accuracy strong {
+  color: var(--blue);
+  font-size: 15px;
+}
+
+.ai-feedback {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.ai-feedback-title {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.ai-feedback-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.ai-feedback-comment {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.ai-feedback-comment .ai-input {
+  flex: 1;
+}
+
+.ai-feedback-done {
+  padding: 8px 12px;
+  background: #eef7f1;
+  color: #067647;
+  border-radius: 7px;
+  font-size: 13px;
+}
+
+/* 考勤模块 */
+.approval-flow-card {
+  margin-bottom: 16px;
+}
+
+.approval-flow {
+  display: grid;
+  gap: 10px;
+}
+
+.approval-step {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.approval-step .step-no {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #eef4ff;
+  color: var(--blue);
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.approval-step strong {
+  display: block;
+}
+
+.approval-step small {
+  color: var(--muted);
+}
+
+.approval-step p {
+  margin: 4px 0 0;
+  color: var(--muted);
+}
+
+.approval-step.approved {
+  border-left: 3px solid var(--green);
+}
+
+.approval-step.pending {
+  border-left: 3px solid var(--amber);
+}
+
+.approval-step.rejected,
+.approval-step.returned {
+  border-left: 3px solid var(--red);
+}
+
+.approval-step.skipped {
+  opacity: .6;
+}
+
+.correction-form {
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.attendance-home-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 14px;
+  padding: 16px 20px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.attendance-home-card strong {
+  display: block;
+  font-size: 20px;
+  margin: 4px 0 2px;
+}
+
+.attendance-home-card small {
+  color: var(--muted);
+}
+
+.attendance-home-times {
+  display: flex;
+  gap: 18px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.attendance-hero {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 16px;
+}
+
+.attendance-hero-main h2 {
+  margin: 5px 0 3px;
+  font-size: 26px;
+}
+
+.attendance-hero-main p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.attendance-times {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.attendance-times strong {
+  color: var(--ink);
+}
+
+.attendance-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.attendance-filters {
+  grid-template-columns: 180px 200px 1fr;
+  align-items: center;
+}
+
+.schedule-filters {
+  grid-template-columns: 180px 200px 220px auto;
+  align-items: center;
+}
+
+.shift-list {
+  display: grid;
+  gap: 4px;
+  margin-bottom: 14px;
+}
+
+.shift-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.shift-row:last-child {
+  border-bottom: 0;
+}
+
+.shift-name strong {
+  margin-right: 8px;
+}
+
+.shift-name small {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+}
+
+.shift-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.shift-edit {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.shift-edit input,
+.shift-create input {
+  height: 38px;
+  border: 1px solid #d0d5dd;
+  border-radius: 7px;
+  padding: 0 10px;
+  background: #fff;
+  color: var(--ink);
+}
+
+.shift-edit input {
+  width: 110px;
+}
+
+.shift-create {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.shift-create input {
+  width: 110px;
+}
+
+.shift-create input:first-child {
+  width: 150px;
+}
+
+@media (max-width: 850px) {
+  .attendance-home-card {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .attendance-hero {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .attendance-filters {
+    grid-template-columns: 1fr;
+  }
+  .schedule-filters {
+    grid-template-columns: 1fr;
+  }
+  .shift-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 850px) {
+  .sidebar {
+    padding: 10px 12px;
+  }
+
+  .logo {
+    padding: 2px 4px 10px;
+  }
+
+  .nav {
+    gap: 6px;
+    overflow-x: auto;
+    padding-bottom: 2px;
+    scrollbar-width: none;
+  }
+
+  .nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-group {
+    display: none;
+  }
+
+  .nav button {
+    flex: 0 0 auto;
+    padding: 9px 12px;
+    font-size: 13px;
+    line-height: 1.2;
+  }
+
+  .notification-nav {
+    margin-left: auto;
+  }
+}

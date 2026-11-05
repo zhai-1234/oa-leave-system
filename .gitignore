@@ -1,0 +1,39 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Secrets
+.env
+.env.*
+ai_config.json
+*.key
+*.pem
+
+# Runtime data
+*.db
+*.sqlite
+*.sqlite3
+leave_system.db
+uploads/
+backups/
+logs/
+
+# Generated and internal files
+outputs/
+_fmt_probe.docx
+
+# Local tool caches
+.claude/
+.codegraph/
+.playwright-mcp/
+
+# IDE and system
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+阿里云 Ubuntu 24.04 部署 FastAPI 请假系统笔记.md

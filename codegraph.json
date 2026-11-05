@@ -1,0 +1,10 @@
+{
+  "exclude": [
+    "outputs/",
+    "uploads/",
+    "static/app.legacy.js",
+    "static/app.js.bak",
+    "static/index.legacy.html",
+    "static/style.css.bak"
+  ]
+}
