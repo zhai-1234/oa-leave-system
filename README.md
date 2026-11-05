@@ -1,4 +1,4 @@
-# OA 请假系统（FastAPI 第一阶段）
+# OA 请假系统
 
 后端 HTTP 服务使用 FastAPI + Uvicorn，前端使用 Vue 3 + Vue Router 组件化单页应用，
 保留 SQLite 和本地附件存储。密码使用 Argon2，登录会话持久化到 SQLite。

@@ -151,7 +151,7 @@
       <div>
         <div class="shell">
           <aside class="sidebar">
-            <div class="logo"><span class="logo-symbol">OA</span><span>企业管理系统</span></div>
+            <div class="logo"><span class="logo-symbol">OA</span><span>请假系统</span></div>
             <nav class="nav">
               <template v-for="(item, i) in navItems" :key="i">
                 <span v-if="item.group" class="nav-group">{{ item.group }}</span>

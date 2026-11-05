@@ -144,16 +144,16 @@
     template: `
       <section class="login-shell">
         <div class="brand-panel">
-          <div class="brand-mark">OA · 请假系统</div>
+          <div class="brand-mark">OA 请假系统</div>
           <div>
             <h1>让每一次休假<br>清楚、有序、可追踪</h1>
-            <p>统一管理员工档案、招聘、考勤、假期、审批与成长记录，并由 AI 助手完成制度问答和合规分析。</p>
+            <p>覆盖请假申请、多级审批、返岗续假、假期管理与消息通知，并由 AI 助手提供制度问答、智能填单和合规预审。</p>
           </div>
           <small>内部系统 · 请妥善保管账号信息</small>
         </div>
         <div class="login-panel">
           <div class="auth-card">
-            <h2>欢迎使用企业员工管理系统</h2>
+            <h2>欢迎使用 OA 请假系统</h2>
             <div class="auth-tabs">
               <button :class="{active: mode === 'login'}" @click="switchMode('login')">账号登录</button>
               <button :class="{active: mode === 'register'}" @click="switchMode('register')">新员工注册</button>
